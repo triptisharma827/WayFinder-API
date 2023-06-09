@@ -15,7 +15,9 @@ var PORT=9000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors())
-
+app.get('/', function(req, res, next) {
+res.send('Welcome to WayFinder API'); 
+});
 app.post("/",async function(req,res,next){
         try {
           let result = await Records.find({_id:req.body.title})
